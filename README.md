@@ -22,7 +22,9 @@ And his Twitch Channel<br/>
 ## HOW TO USE
 1. Make sure that your console font is squared  <br> 
 2. Install libs with <br> 
-">>pip install keyboard
->>pip install numpy"
+```
+>>pip install keyboard
+>>pip install numpy
+```
 3. Then just excecute main.py with the command <br>
 ">>python main.py"
