@@ -16,10 +16,10 @@ class Object3d:
         edges = []
         for line in f:
             if line.startswith("v "):
-                line = line.replace("v ", "").split(" ")
-                model.append(np.array([float(line[0]), float(line[1]), float(line[2])]))
+                line = line.replace("v ", "").strip().split(" ")
+                model.append(np.array([float(line[0]), float(line[1]), float(line[2].strip())]))
             elif line.startswith("f "):
-                line = line.replace("f ", "").split(" ")
+                line = line.replace("f ", "").strip().split(" ")
                 edge = [int(x.split("/")[0]) - 1 for x in line]
                 edges.append(edge)
 

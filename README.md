@@ -1,17 +1,14 @@
 # 3D render system
 This is a render system based in frustum <br/>
-![Example](/Images/Cube.gif) <br/>
+![Example](/Images/Edges.gif) <br/>
 Can also import .obj models <br/>
-![Example](/Images/Aircraft.gif) <br/>
+![Example](/Images/EdgeAircraft.gif) <br/>
 
 ## FEATURES
 1. 2D Camera, 3D render, 3D models
 2. Obj models import
 3. Movement and rotation
 4. Edge render
-<br/>
-
-![Example](/Images/Edges.gif) <br/>
 
 ## WHY (MOTIVATION)
 It was a really big challenge to make a game without game engine <br/>

@@ -2,11 +2,11 @@ from classes import RenderEngine, Camera3d, Object3d
 import keyboard
 import time
 
-speed = 1
+speed = 0.5
 
 camera = Camera3d(60, 60, 0.25, 6000)
 model = Object3d("aircraft.obj", [0, 0, 0], [0, 0, 0])
-render = RenderEngine(100, 400)
+render = RenderEngine(100, 500)
 
 while True:
     model_positions = [camera.calculate_x_y(point) for point in model.points()]
