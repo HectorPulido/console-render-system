@@ -3,20 +3,27 @@ import platform
 import numpy as np
 import math
 
+
 class Object3d:
     def __init__(self, model, position, rotation):
         self.position = np.array(position, dtype=float)
         self.rotation = np.array(rotation, dtype=float)
-        self.model = self.obj_to_model(model)
+        self.model, self.edges = self.obj_to_model(model)
 
     def obj_to_model(self, file):
         f = open(file, "r")
         model = []
+        edges = []
         for line in f:
-            if line.startswith("v  "):
-                line = line.replace("v  ", "").split(" ")
+            if line.startswith("v "):
+                line = line.replace("v ", "").split(" ")
                 model.append(np.array([float(line[0]), float(line[1]), float(line[2])]))
-        return model
+            elif line.startswith("f "):
+                line = line.replace("f ", "").split(" ")
+                edge = [int(x.split("/")[0]) - 1 for x in line]
+                edges.append(edge)
+
+        return model, edges
 
     def points(self):
         x_axis = [1, 0, 0]
@@ -109,14 +116,8 @@ class RenderEngine:
         if i > 1 or j > 1:
             return -1, -1
 
-        i += 1
-        i /= 2
-        j += 1
-        j /= 2
-        i *= self.room_height
-        j *= self.room_width
-        i = int(i)
-        j = int(j)
+        i = int(((i + 1) / 2) * self.room_height)
+        j = int(((j + 1) / 2) * self.room_width)
         return i, j
 
     def draw_point(self, i, j):
@@ -130,6 +131,20 @@ class RenderEngine:
             return
 
         self.room[i][j] = "X"
+
+    def draw_line(self, i, j, x, y):
+        if i == -1 or j == -1 or x == -1 or y == -1:
+            return
+
+        lerp = lambda start, end, t: start + t * (end - start)
+        distance = lambda x, y: math.sqrt(x ** 2 + y ** 2)
+
+        iterations = int(distance(i - x, j - y))
+        for k in range(iterations):
+            t = k / iterations
+            ax = int(lerp(i, x, t))
+            ay = int(lerp(j, y, t))
+            self.draw_point(ax, ay)
 
     def draw_rectangle(self, x, y, width, height):
         for j in range(x, x + width):
