@@ -31,4 +31,6 @@ And his Twitch Channel<br/>
 >>pip install numpy
 ```
 3. Then just excecute main.py with the command <br>
-">>python main.py"
+```
+>>python main.py
+```
