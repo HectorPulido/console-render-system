@@ -24,10 +24,9 @@ And his Twitch Channel<br/>
 1. Make sure that your console font is squared  <br> 
 2. Install libs with <br> 
 ```
->>pip install keyboard
->>pip install numpy
+>> pip install -r requirements.txt
 ```
 3. Then just excecute main.py with the command <br>
 ```
->>python main.py
+>> python main.py
 ```
