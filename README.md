@@ -12,7 +12,7 @@ Can also import .obj models <br/>
 
 ## WHY (MOTIVATION)
 It was a really big challenge to make a game without game engine <br/>
-[![He creado un juego SIN MOTOR](https://img.youtube.com/vi/rnXOMoeNsp0/0.jpg)](https://www.youtube.com/watch?v=rnXOMoeNsp0)
+[![He creado un juego SIN MOTOR](https://img.youtube.com/vi/rnXOMoeNsp0/0.jpg)](https://www.youtube.com/watch?v=rnXOMoeNsp0&list=PLHdk97dabfvwGPQxHpVFVRxaWFz7FuRw3)
 
 This tutorial was made for <b>Hector Pulido's</b> youtube channel <br/>
 https://www.youtube.com/c/HectorAndresPulidoPalmar <br/>
