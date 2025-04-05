@@ -17,7 +17,9 @@ class Object3d:
         for line in f:
             if line.startswith("v "):
                 line = line.replace("v ", "").strip().split(" ")
-                model.append(np.array([float(line[0]), float(line[1]), float(line[2].strip())]))
+                model.append(
+                    np.array([float(line[0]), float(line[1]), float(line[2].strip())])
+                )
             elif line.startswith("f "):
                 line = line.replace("f ", "").strip().split(" ")
                 edge = [int(x.split("/")[0]) - 1 for x in line]
@@ -88,13 +90,6 @@ class RenderEngine:
 
         self.fill_room()
 
-    def clear(self):
-        self.fill_room()
-        if platform.system() == "Windows":
-            os.system("cls")
-        elif platform.system() == "Linux":
-            os.system("clear")
-
     def fill_room(self):
         self.room.clear()
         for _ in range(0, self.room_height):
@@ -109,6 +104,18 @@ class RenderEngine:
             for j in i:
                 toPrint += j
             print(toPrint)
+
+    def get_room_as_string(self):
+        lines = []
+        for row in self.room:
+            lines.append("".join(row))
+        return "\n".join(lines)
+
+    def clear_console(self):
+        if platform.system() == "Windows":
+            os.system("cls")
+        else:
+            os.system("clear")
 
     def normalize(self, i, j):
         if i < -1 or j < -1:
@@ -137,7 +144,7 @@ class RenderEngine:
             return
 
         lerp = lambda start, end, t: start + t * (end - start)
-        distance = lambda x, y: math.sqrt(x ** 2 + y ** 2)
+        distance = lambda x, y: math.sqrt(x**2 + y**2)
 
         iterations = int(distance(i - x, j - y))
         for k in range(iterations):
