@@ -49,4 +49,4 @@ And his Twitch Channel<br/>
 <a href="https://pequesoft.net/" target="blank">
 <img align="center" width="30px" alt="Pequesoft website" src="https://github.com/HectorPulido/HectorPulido/blob/master/img/pequesoft-favicon.png?raw=true"/></a> &nbsp; &nbsp;
 
-</p>r
+</p>
